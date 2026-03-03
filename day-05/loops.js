@@ -71,3 +71,21 @@ for(let i = 1; i <=5; i++){
     // Print the fully built row
     console.log(rowStars)
    }
+
+
+
+
+// Manager loop: Start from 5, go down to 1 (i--)
+for(let i = 5; i >= 1; i--) {
+
+    // Create an empty string for the current row
+    let rowStars = "";
+
+    // Worker loop: Still goes from 1 to whatever the manager says (i)
+    for(let j = 1; j <= i; j++) {
+        rowStars += "*";
+    }
+
+    // Print the row
+    // console.log(rowStars);
+}
