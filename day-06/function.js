@@ -111,22 +111,57 @@ const double = multiplier(2);
 
 
 
-function calculateBMI(weight, height) {
-    // 1. Early Return for bad inputs (Validation)
-    if (weight <= 0 || height <= 0 || typeof weight !== "number" || typeof height !== "number") {
-        return "Invalid input! Weight and height must be positive numbers.";
-    }
+// function calculateBMI(weight, height) {
+//     // 1. Early Return for bad inputs (Validation)
+//     if (weight <= 0 || height <= 0 || typeof weight !== "number" || typeof height !== "number") {
+//         return "Invalid input! Weight and height must be positive numbers.";
+//     }
 
-    // 2. Calculate BMI here (use the formula)
-    let bmi = ???;
+//     // 2. Calculate BMI here (use the formula)
+//     let bmi = ???;
 
-    // 3. Return the exact category based on the bmi value
-    if (bmi < 18.5) {
-        return "Underweight";
-    }
-    // Add the remaining conditions using early returns...
+//     // 3. Return the exact category based on the bmi value
+//     if (bmi < 18.5) {
+//         return "Underweight";
+//     }
+//     // Add the remaining conditions using early returns...
     
+// }
+
+// console.log(calculateBMI(65, 1.75)); // Expected: "Normal"
+// console.log(calculateBMI(-10, 1.75)); // Expected: "Invalid input!..."
+
+
+
+// challenge 2:  reusable Discount Calculator (Higher-Order Function)
+
+// HOF: Takes the discount percentage and returns a function
+const createDiscountCalculator = (discountPercentage) => {
+    return(price) => {
+        const discountAmount = price * (discountPercentage / 100);
+        return price - discountAmount;
+    };
+};
+
+
+// Create specific calculators
+const summerSale = createDiscountCalculator(20); // 20% discount
+const winterSale = createDiscountCalculator(15); // 15% discount 
+
+// console.log(summerSale(1000)); // Output: 800
+// console.log(winterSale(1000)) // Output: 850
+
+
+
+const createTaxCalculator = (taxPercentage) => {
+    return(amount) => {
+        const taxAmount = amount * (taxPercentage / 100);
+        return amount + taxAmount;
+    }
 }
 
-console.log(calculateBMI(65, 1.75)); // Expected: "Normal"
-console.log(calculateBMI(-10, 1.75)); // Expected: "Invalid input!..."
+const restaurentVat = createTaxCalculator(15)
+const shopTax = createTaxCalculator(5)
+
+console.log(restaurentVat(1000))
+console.log(shopTax(1000))
