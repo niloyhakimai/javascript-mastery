@@ -163,5 +163,24 @@ const createTaxCalculator = (taxPercentage) => {
 const restaurentVat = createTaxCalculator(15)
 const shopTax = createTaxCalculator(5)
 
-console.log(restaurentVat(1000))
-console.log(shopTax(1000))
+// console.log(restaurentVat(1000))
+// console.log(shopTax(1000))
+
+
+// building a counter using closure
+
+const createCounter = () => {
+    let count = 0; // Private variable (memory held by closure)
+
+    return () => {
+        count ++; // Modifying the private variable
+        return count;
+    };
+};
+
+const clickCounter = createCounter();
+console.log(clickCounter()) // Output: 1
+console.log(clickCounter()) // Output: 2
+console.log(clickCounter()) // ...3
+console.log(clickCounter()) // ...4
+console.log(clickCounter()) // ...5
