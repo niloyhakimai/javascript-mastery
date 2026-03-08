@@ -178,9 +178,32 @@ const createCounter = () => {
     };
 };
 
-const clickCounter = createCounter();
-console.log(clickCounter()) // Output: 1
-console.log(clickCounter()) // Output: 2
-console.log(clickCounter()) // ...3
-console.log(clickCounter()) // ...4
-console.log(clickCounter()) // ...5
+// const clickCounter = createCounter();
+// console.log(clickCounter()) // Output: 1
+// console.log(clickCounter()) // Output: 2
+// console.log(clickCounter()) // ...3
+// console.log(clickCounter()) // ...4
+// console.log(clickCounter()) // ...5
+
+
+const appendItem = (array, newItem) => {
+    // Using the spread operator to create a NEW array (No side effects)
+
+    return [array, newItem]
+};
+
+
+const cart = ["laptop", "mouse"]
+const updateCart = appendItem(cart, "keyboard");
+
+// console.log("Orignal cart:", cart);
+// console.log("Update Cart:", updateCart);
+
+
+// this runs immediately
+(() => {
+    const sysCode = "X99-AUTO"; // This is isolated. Cannot be accessed Outside.
+    console.log(`System Initialized with code: ${sysCode}`)
+})();
+
+// console.log(sysCode); //  ReferenceError: sysCode is not defined
