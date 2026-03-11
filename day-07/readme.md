@@ -391,13 +391,3 @@ const total = cart.reduce((sum,item)=>sum+item.price,0);
 | every   | all match    |
 | reduce  | combine      |
 
----
-
-# Next Topics (Day-08)
-
-* `reverse()`
-* `sort()` deep dive
-* `sort()` without compareFn problem
-* Array destructuring
-* Spread operator (`...`)
-* Advanced array patterns
